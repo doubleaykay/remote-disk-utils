@@ -1,0 +1,1 @@
+﻿# script to backup from laptop to hard drive
