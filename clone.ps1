@@ -5,13 +5,11 @@
 # if specified, CD to that directory and carry on
 # if not specified, work in current working directory
 
-if ($args[1])
-{
+if ($args[1]) {
 $isDest = $true
 }
 
-if ($isDest)
-{
+if ($isDest) {
 $startDir = Get-Location
 cd $args[1]
 }
@@ -26,8 +24,7 @@ $currDir = Get-Location
 $dirName = Split-Path -Path $remoteDir -Leaf
 
 # check if destination folder already exists, if not, make it
-if (-NOT (Test-Path -Path $dirName))
-{
+if (-NOT (Test-Path -Path $dirName)) {
 mkdir $dirName
 }
 
@@ -36,7 +33,6 @@ mkdir $dirName
 xcopy $remoteDir $dirName /t /e
 
 # if destination was specified, return to the original folder
-if ($isDest)
-{
+if ($isDest) {
 cd $startDir
 }
